@@ -1,0 +1,14 @@
+Subquery from scott user:
+01.select ename from emp where hiredate>(select hiredate from emp where ename='KING')
+02.select ename from emp where sal>all(select sal from emp where JOB='CLERK')
+03.select ename from emp where sal>any(select sal from emp where JOB='CLERK')
+04.select ename from emp where sal in(select max(sal) from emp group by deptno)
+05.select ename from emp where sal>(select sal from emp where ename='SMITH')
+
+Joining for user scott:
+01.select e.ename from emp e,dept d where e.deptno =(select deptno from dept where LOC='DALLAS')
+02.select e.ename from emp e where e.hiredate <all(select hiredate from emp where JOB='MANAGER')
+03.select e.ename from emp e where e.job <all(select job from emp where JOB='NO MANAGER')
+04.select distinct(e.ename), s.grade from salgrade s, emp e where e.sal between s.losal and s.hisal
+05.select ename, deptno,job from emp
+

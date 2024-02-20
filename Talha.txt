@@ -1,0 +1,24 @@
+01.
+create table Talha_45688(p_id number(5) constraint p_id_pk primary key, p_name varchar2(30) not null,p_phone number(11), p_email varchar2(50) unique,p_type varchar2(20) constraint p_type_ck check (p_type in ('batsman','bowler','keeper')),p_age number(3) constraint p_age_ck check (p_age>=18), p_country varchar2(15) default 'Bangladesh')
+
+desc Talha_45688
+
+02.
+a) desc Talha_45688
+b)alter table Talha_45688 disable constraint p_id_pk
+c)alter table Talha_45688 drop column p_phone;
+  alter table Talha_45688 add p_phone number(11) not null;
+d)alter table Talha_45688 drop column p_name
+e)alter table Talha_45688 enable constraint p_id_pk
+
+03.
+create table coach (c_id number(5),c_name varchar2(30), c_type varchar2(25), p_id number(5))
+
+04.
+a)alter table coach drop column c_id
+
+alter table coach add c_id number(5) constraint c_id_pk primary key
+
+b)alter table coach drop column c_name
+
+alter table coach add c_name varchar2(30) unique
